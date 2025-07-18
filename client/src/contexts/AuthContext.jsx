@@ -20,24 +20,31 @@ export const AuthProvider = ({ children }) => {
     // Check if user is logged in on app start
     const token = localStorage.getItem('token');
     const userData = localStorage.getItem('user');
-    
+    let parsedUser = null;
     if (token && userData) {
-      setUser(JSON.parse(userData));
-      // Verify token is still valid
-      authAPI.getMe()
-        .then(response => {
-          setUser(response.data);
-          localStorage.setItem('user', JSON.stringify(response.data));
-        })
-        .catch(() => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          setUser(null);
-        })
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
+      try {
+        parsedUser = JSON.parse(userData);
+      } catch (e) {
+        parsedUser = null;
+      }
+      if (parsedUser) {
+        setUser(parsedUser);
+        // Verify token is still valid
+        authAPI.getMe()
+          .then(response => {
+            setUser(response.data);
+            localStorage.setItem('user', JSON.stringify(response.data));
+          })
+          .catch(() => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setUser(null);
+          })
+          .finally(() => setLoading(false));
+        return;
+      }
     }
+    setLoading(false);
   }, []);
 
   const login = async (email, password) => {
