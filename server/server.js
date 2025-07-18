@@ -3,9 +3,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const http = require('http');
 const socketIo = require('socket.io');
+const connectDB = require('./index');
 
 // Load env vars
 dotenv.config();
+connectDB();
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
@@ -43,6 +45,12 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
   });
+});
+
+// Start server
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = server;
