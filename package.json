@@ -4,12 +4,12 @@
   "description": "A modern, full-stack Library Management System built with the MERN stack",
   "main": "index.js",
   "scripts": {
-    "install:all": "pnpm install && cd backend && pnpm install && cd ../frontend && pnpm install",
+    "install:all": "pnpm install && cd server && pnpm install && cd ../client && pnpm install",
     "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
-    "dev:backend": "cd backend && pnpm start",
-    "dev:frontend": "cd frontend && pnpm run dev",
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && pnpm start"
+    "dev:backend": "cd server && pnpm start",
+    "dev:frontend": "cd client && pnpm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && pnpm start"
   },
   "keywords": [
     "library",
@@ -29,4 +29,4 @@
   "engines": {
     "node": ">=14.0.0"
   }
-} 
+}
