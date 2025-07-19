@@ -52,18 +52,18 @@ Before running this application, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/PLP-MERN-Stack-Development/libraryMS.git
-cd libraryMS
+git clone https://github.com/Sir-JamesMuritu/week-7-devops-deployment-assignment-Sir-JamesMuritu.git
+cd week-7-devops-deployment-assignment-Sir-JamesMuritu
 ```
 
 ### 2. Backend Setup
 
 ```bash
 # Navigate to backend directory
-cd backend
+cd server
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file
 cp .env.example .env
@@ -75,7 +75,7 @@ cp .env.example .env
 # NODE_ENV=development
 
 # Start the backend server
-npm start
+pnpm run  dev
 ```
 
 The backend server will start on http://localhost:5000
@@ -86,10 +86,10 @@ Open a new terminal window:
 
 ```bash
 # Navigate to frontend directory
-cd frontend
+cd client
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file (optional)
 # Create a .env file in the frontend directory with:
@@ -97,7 +97,7 @@ npm install
 # VITE_APP_NAME=Library Management System
 
 # Start the frontend development server
-npm run dev
+pnpm run dev
 ```
 
 The frontend development server will start on http://localhost:5173
@@ -193,31 +193,31 @@ library-management-system/
 ### Backend Development
 
 ```bash
-cd backend
+cd server
 
 # Run in development mode with auto-restart
-npm run dev
+pnpm run dev
 
 # Run in production mode
-npm start
+pnpm start
 ```
 
 ### Frontend Development
 
 ```bash
-cd frontend
+cd client
 
 # Start development server
-npm run dev
+pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 
 # Preview production build
-npm run preview
+pnpm run preview
 
 # Run linting
-npm run lint
+pnpm run lint
 ```
 
 ## Styling with Tailwind CSS

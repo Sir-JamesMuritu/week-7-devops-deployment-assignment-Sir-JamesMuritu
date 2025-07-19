@@ -175,9 +175,9 @@ const Books = () => {
   };
 
   const BookCard = ({ book }) => (
-    <div className="card hover:shadow-lg transition-all duration-200 group">
+    <div className="card hover:shadow-2xl transition-all duration-200 group">
       <div className="aspect-w-3 aspect-h-4 mb-4">
-        <div className="w-full h-48 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg flex items-center justify-center">
+        <div className="w-full h-48 bg-gradient-to-br from-accent-50 to-primary-100 rounded-lg flex items-center justify-center">
           {book.coverImage ? (
             <img 
               src={book.coverImage} 
@@ -185,21 +185,21 @@ const Books = () => {
               className="w-full h-full object-cover rounded-lg"
             />
           ) : (
-            <BookOpen className="h-16 w-16 text-primary-600" />
+            <BookOpen className="h-16 w-16 text-accent-500" />
           )}
         </div>
       </div>
       
       <div className="space-y-3">
         <div>
-          <h3 className="font-semibold text-gray-900 line-clamp-2 group-hover:text-primary-600 transition-colors">
+          <h3 className="font-semibold text-primary-900 line-clamp-2 group-hover:text-accent-600 transition-colors">
             {book.title}
           </h3>
           <p className="text-sm text-gray-600 mt-1">by {book.author}</p>
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded">
+          <span className="text-sm font-medium text-accent-700 bg-accent-100 px-2 py-1 rounded">
             {book.genre}
           </span>
           {book.rating?.average > 0 && (
@@ -250,20 +250,18 @@ const Books = () => {
               </button>
               <button 
                 onClick={() => handleDeleteBook(book)}
-                className="btn-secondary text-sm py-2 px-3 flex items-center justify-center text-red-600 hover:bg-red-50"
+                className="btn-accent text-sm py-2 px-3 flex items-center justify-center"
               >
                 <Trash2 className="h-4 w-4" />
               </button>
             </>
           ) : (
-            book.availability?.availableCopies > 0 && (
-              <button 
-                onClick={() => handleRequestBook(book._id)}
-                className="flex-1 btn-primary text-sm py-2"
-              >
-                Request
-              </button>
-            )
+            <button 
+              onClick={() => handleRequestBook(book._id)}
+              className="btn-primary text-sm py-2 px-3 flex items-center justify-center"
+            >
+              Request
+            </button>
           )}
         </div>
       </div>
